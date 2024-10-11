@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Главная страница
+{% endblock title%}
+
+{% block content %}
+	 <section class="ab-info-main py-md-5 py-4 editContent" style="padding-left: 3rem; padding-right: 3rem;">
+            <div class="container-fluid py-md-3">
+                <div class="row">
+                    <div class="side-bar col-lg-3">
+
+                        {% include 'website/components/_side_bar.html' %}
+                    <!-- //product left -->
+                    <!-- product right -->
+                    <div class="left-ads-display col-lg-9">
+                        <div class="row">
+                            {% for movie in movies %}
+                            {% include 'website/components/_film.html' %}
+                            {% endfor %}
+                        </div>
+                        <!--<div class="grid-img-right mt-4 text-right bg bg1" >
+                            <span class="money editContent" >Flat 50% Off</span>
+                            <a href="moviesingle.html" class="btn" >Now</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}

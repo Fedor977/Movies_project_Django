@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <!-- //Meta tag Keywords -->
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="{% static 'bundles/css/bootstrap.css' %}">
+    <!-- Bootstrap-Core-CSS -->
+    <!--/ Style-CSS -->
+    <link rel="stylesheet" href="{% static 'bundles/css/style.css' %}" type="text/css" media="all">
+    <!--// Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="{% static 'bundles/css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+    <!-- //Fonts -->
+</head>
+
+<body>
+<div id="page" class="page"><!-- mian-content -->
+    {% if request.path == '/' %}
+        <div class="main-banner bg bg1" id="home"
+             style="background-color: rgba(0, 0, 0, 0); margin-top: 0px;
+                     background-image: url({% static 'bundles/single-post-pic.jpg' %});">
+    {% else %}
+        <div class="main-banner inner bg bg1" id="home"
+             style="background-color: rgba(0, 0, 0, 0); margin-top: 0px;
+                     background-image: url({{ movie.poster.url }});">
+    {% endif %}
+
+    <!-- header -->
+    {% include 'components/_header.html' %}
+    <!-- //header -->
+    <!--/banner-->
+    <div class="banner-info">
+        <p class="editContent">лучший сайт на django 3</p>
+        <h3 class="mb-4 editContent">Все о кино</h3>
+        <div class="ban-buttons">
+
+
+        </div>
+    </div>
+    <!--// banner-inner -->
+
+    </div>
+    <!--//main-content-->
+    <!---->
+    <ol class="breadcrumb editContent">
+        <li class="breadcrumb-item">
+            <a href="{% url 'index' %}" class="editContent">Home</a>
+        </li>
+        <li class="breadcrumb-item active editContent">Single Page</li>
+    </ol>
+    <!---->
+    <!-- banner -->
+    {% block content %}
+
+    {% endblock content %}
+
+    <!-- //contact -->
+    <!-- footer -->
+    {% include 'components/_footer.html' %}
+    <!-- //footer -->
+    <div class="cpy-right py-3">
+        <div class="container">
+            <div class="row">
+                <p class="col-md-10 text-left">© 2019 DjangoMovie. All rights reserved | Design by
+                    <a href="https://djangochannel.com"> DJANGO SCHOOL.</a>
+                </p>
+                <!-- move top icon -->
+                <a href="#home" class="move-top text-right col-md-2"><span class="fa fa-long-arrow-up"
+                                                                           aria-hidden="true"></span></a>
+                <!-- //move top icon -->
+            </div>
+        </div>
+    </div></div>
+</body>
+</html>
